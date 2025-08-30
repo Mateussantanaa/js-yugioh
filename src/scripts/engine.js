@@ -32,16 +32,16 @@ const pathImages = "./src/assets/icons/";
 const cardData = [
   {
     id: 0,
-    name: "Blue Eyes White Dragon",
-    type: "Paper",
+    name: "Dragão Branco de Olhos Azuis",
+    type: "Papel",
     img: `${pathImages}dragon.png`,
     WinOf: [1],
     LoseOf: [2],
   },
   {
     id: 1,
-    name: "Dark Magician",
-    type: "Rock",
+    name: "Mago Negro",
+    type: "Pedra",
     img: `${pathImages}magician.png`,
     WinOf: [2],
     LoseOf: [0],
@@ -49,7 +49,7 @@ const cardData = [
   {
     id: 2,
     name: "Exodia",
-    type: "Scissors",
+    type: "Tesoura",
     img: `${pathImages}exodia.png`,
     WinOf: [0],
     LoseOf: [1],
@@ -121,16 +121,16 @@ async function updateStore() {
 }
 
 async function checkDuelResults(playerCardId, computerCardId) {
-  let duelResults = "Draw";
+  let duelResults = "Empate";
   let playerCard = cardData[playerCardId];
 
   if (playerCard.WinOf.includes(computerCardId)) {
-    duelResults = "Win";
+    duelResults = "Ganhou";
     state.score.playerScore++;
   }
 
   if (playerCard.LoseOf.includes(computerCardId)) {
-    duelResults = "Lose";
+    duelResults = "Perdeu";
     state.score.computerScore++;
   }
 
@@ -156,7 +156,7 @@ async function removeAllCardsImages() {
 async function drawSelectCard(index) {
   state.cardSprites.avatar.src = cardData[index].img;
   state.cardSprites.name.innerText = cardData[index].name;
-  state.cardSprites.type.innerText = "Attribute : " + cardData[index].type;
+  state.cardSprites.type.innerText = "Atributo : " + cardData[index].type;
 }
 
 async function drawCards(cardNumbers, fieldSide) {
