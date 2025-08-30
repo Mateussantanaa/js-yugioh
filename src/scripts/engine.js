@@ -47,7 +47,7 @@ const cardData = [
     LoseOf: [0],
   },
   {
-    id: 1,
+    id: 2,
     name: "Exodia",
     type: "Scissors",
     img: `${pathImages}exodia.png`,
